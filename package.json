@@ -1,0 +1,36 @@
+{
+  "name": "mongodb-worker-demo",
+  "description": "Demo using the MongoDB Atlas Data API inside a Cloudflare Worker.",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "main": "dist/index.mjs",
+  "scripts": {
+    "build": "rollup -c",
+    "deploy": "npm run build && source configuration.sh && wrangler publish",
+    "secret": "wrangler secret put"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/saibotsivad/mongodb-worker-demo.git"
+  },
+  "author": {
+    "name": "Tobias Davis",
+    "email": "tobias@davistobias.com",
+    "url": "https://davistobias.com"
+  },
+  "license": "SEE LICENSE IN LICENSE.md",
+  "bugs": {
+    "url": "https://github.com/saibotsivad/mongodb-worker-demo/issues"
+  },
+  "homepage": "https://davistobias.com/",
+  "dependencies": {
+    "@cloudflare/wrangler": "^1.19.7",
+    "@rollup/plugin-commonjs": "^21.0.1",
+    "@rollup/plugin-node-resolve": "^13.1.3",
+    "@rollup/plugin-replace": "^3.0.1",
+    "@saibotsivad/mongodb": "^0.0.8",
+    "rollup": "^2.66.0",
+    "rollup-plugin-svelte": "^7.1.0"
+  }
+}

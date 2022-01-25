@@ -1,0 +1,26 @@
+name = "mongodb-worker-demo"
+type = "javascript"
+routes = [
+  "https://mongodb.davisresearchgroup.com/",
+  "https://mongodb.davisresearchgroup.com/*"
+]
+workers_dev = false
+compatibility_date = "2022-01-25"
+
+# https://developers.cloudflare.com/workers/platform/environment-variables
+# You'll need to set these with the Wrangler CLI tool:
+# [secrets]
+# MONGODB_API_URL
+# MONGODB_DATABASE_NAME
+# MONGODB_COLLECTION_NAME
+# MONGODB_API_KEY
+# MONGODB_CLUSTER_NAME
+
+[build]
+command = "npm install && npm run build"
+
+[build.upload]
+format = "modules"
+main = "./index.mjs"
+# I'm not sure why, but the Rollup build had to go in `dist` and also needs to use `.mjs` or
+# when you try to deploy it complains about not understanding the `export` keyword?
